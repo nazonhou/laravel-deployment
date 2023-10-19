@@ -1,0 +1,8 @@
+docker_agents:
+  hosts:
+    managed:
+      ansible_host: 172.16.35.4
+      ansible_user: vagrant
+      ansible_become_password: vagrant
+      ansible_ssh_private_key_file: /home/vagrant/.ssh/managed/id_rsa
+        

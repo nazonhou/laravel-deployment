@@ -1,0 +1,4 @@
+repo: git@github.com-laravel-ansible:nazonhou/laravel-ansible.git
+dest: /home/vagrant/laravel-ansible
+branch: main
+app_container_name: laravel-ansible

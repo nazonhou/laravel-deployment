@@ -1,0 +1,29 @@
+---
+- name: "Debug vars"
+  hosts: all
+  tasks:
+  - name: "Debug repo var"
+    ansible.builtin.debug:
+      var: repo
+
+  - name: "Debug branch var"
+    ansible.builtin.debug:
+      var: branch
+
+  - name: "Debug dest var"
+    ansible.builtin.debug:
+      var: dest
+  
+  - name: "Debug dest var"
+    ansible.builtin.debug:
+      var: ansible_architecture
+
+  - name: "Retrieve architecture"
+    vars: 
+      deb_architecture: { "armv6l": "armhf", "armv7l": "armhf", "aarch64": "arm64", "x86_64": "amd64", "i386": "i386" }
+    ansible.builtin.debug:
+      msg: "{{ deb_architecture[ansible_architecture] }}"
+
+  - name: "Debug dest var"
+    ansible.builtin.debug:
+      msg: "{{ ansible_lsb.codename }}"

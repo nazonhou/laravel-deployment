@@ -1,0 +1,38 @@
+---
+- name: Clone repo and configure application
+  hosts: all
+  roles:
+  - clone_repo
+  - configure_application
+
+- name: Install docker and pip package
+  hosts: all
+  become: true
+  roles:
+  - install_docker
+  - install_pip
+
+- name: Install python dependencies needed to execute community.docker.docker_compose module
+  hosts: all
+  roles:
+  - install_docker_requirements
+
+- name: Launch docker services
+  hosts: all
+  roles:
+  - launch_services
+
+- name: Install dependencies
+  hosts: all
+  roles:
+  - install_dependencies
+
+- name: Generate key
+  hosts: all
+  roles:
+  - generate_key
+
+- name: Run deployment commands
+  hosts: all
+  roles:
+  - artisan_commands
